@@ -1,0 +1,139 @@
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background: #ffffff;
+        }
+        .contenedor {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 20px;
+            position: relative;
+            background: #a0a0dd;
+            padding: 30px;
+            border-radius: 50px;
+}
+ 
+        .producto {
+            background: #ffffff;
+            padding: 15px;
+            width: 200px;
+            border-radius: 5px;
+        }
+        .producto h3 {
+            margin: 0;
+        }
+        .producto button {
+         font-family: 'Franklin Gothic Medium';
+         margin-top: 10px;
+         width: 100%;
+         padding: 12px;
+         background-color: #800000; /* color vino */
+         color: white;
+         border: none;
+         border-radius: 30px; /* 🔴 hace el botón ovalado */
+         font-size: 16px;
+         cursor: pointer;
+
+         display: flex;              /* para alinear icono y texto */
+         align-items: center;
+         justify-content: center;
+         gap: 8px;                   /* espacio entre icono y texto */
+}
+
+.producto button:hover {
+    background-color: #660000; /* vino más oscuro */
+}
+
+
+.bloque-carrito{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+
+    max-height: 300px;
+    overflow: hidden;
+
+    background: #380808;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    padding: 15px;
+
+    box-shadow: 0 8px 20px rgb(245, 242, 242);
+    z-index: index 1000;
+}
+
+.bloque-carrito ul{
+    max-height: 180px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+
+.bloque-carrito h2{
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.bloque-carrito li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.bloque-carrito li,
+.bloque-carrito h2,
+.bloque-carrito p,
+.bloque-carrito strong {
+    color: white;
+}
+
+.bloque-carrito a { 
+        font-family: 'Franklin Gothic Medium';
+         margin-top: 10px;
+         padding: 10px 25px;
+         background-color: #ffffff; 
+         color: rgb(0, 0, 0);
+         border: none;
+         cursor: pointer;
+         display: inline-flex;              /* para alinear icono y texto */
+         align-items: center;
+         justify-content: center;
+         gap: 8px;   
+
+}
+
+.bloque-cliente{
+  background-color: #460101;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.bloque-cliente button {
+         font-family: 'Franklin Gothic Medium';
+         margin-top: 10px;
+         padding: 10px 25px;
+         background-color: #c5bdce; 
+         color: rgb(0, 0, 0);
+         border: none;
+         cursor: pointer;
+         display: inline-flex;              /* para alinear icono y texto */
+         align-items: center;
+         justify-content: center;
+         gap: 8px;                   /* espacio entre icono y texto */
+         
+}
+
+
+.img-producto {
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+

@@ -1,0 +1,4 @@
+body { font-family: Arial; font-size: 12px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #000; padding: 6px; }
+th { background: #aad3e2; }
