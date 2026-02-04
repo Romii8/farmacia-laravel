@@ -5,8 +5,6 @@ namespace App\Models;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-
-
 class Compra
 {
 public static function guardarCliente($nombre, $correo, $direccion)
@@ -26,7 +24,7 @@ public static function guardarCliente($nombre, $correo, $direccion)
     ]);
 }
 
-    public static function guardarCompra($id_cliente, $total)
+public static function guardarCompra($id_cliente, $total)
     {
         DB::table('compras')->insert([
             'id_cliente' => $id_cliente,
@@ -37,7 +35,7 @@ public static function guardarCliente($nombre, $correo, $direccion)
         return DB::getPdo()->lastInsertId();
     }
 
-    public static function guardarDetalle($id_compra, $id_producto, $cantidad, $precio)
+public static function guardarDetalle($id_compra, $id_producto, $cantidad, $precio)
     {
         DB::table('detalle_compra')->insert([
             'id_compra' => $id_compra,

@@ -8,21 +8,19 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ConfirmacionCompra;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Services\CarritoService;
 
 class CompraController extends Controller
 {
     public function confirmar(Request $request)
     {
-        $carrito = session('carrito', []);
+        $carrito = CarritoService::obtener();
 
         if (empty($carrito)) {
             return redirect('/');
         }
 
-        $total = 0;
-        foreach ($carrito as $item) {
-            $total += $item['precio'] * $item['cantidad'];
-        }
+        $total = CarritoService::calcularTotal($carrito);
 
         $user = Auth::user();
 
@@ -55,7 +53,7 @@ class CompraController extends Controller
         ];
 
         session()->put('factura', $factura);
-        session()->forget('carrito');
+        CarritoService::vaciar();
 
         try {
             Mail::to($user->email)->send(new ConfirmacionCompra($factura));
@@ -69,13 +67,13 @@ class CompraController extends Controller
             'ok' => false,
             'mensaje' => 'Compra realizada, pero el correo no pudo enviarse ❌'
         ]);
-}
+        }
 
         return redirect('/factura');
-    }
+        }
 
     public function misCompras()
-{
+    {
     $compras = DB::table('compras')
         ->join('clientes', 'compras.id_cliente', '=', 'clientes.id_cliente')
         ->where('clientes.user_id', Auth::id())
@@ -83,5 +81,5 @@ class CompraController extends Controller
         ->get();
 
     return view('compra.mis-compras', compact('compras'));
-}
+    }
 }

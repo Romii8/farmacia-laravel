@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Services\FacturaService;
 
 class PdfController extends Controller
 {
@@ -16,8 +17,9 @@ class PdfController extends Controller
 
         $pdf = Pdf::loadView('compra.factura-pdf', compact('factura'));
 
-        $codigo = "FAC-" . date("Ymd") . "-" . rand(1000, 9999);
+        $codigo = FacturaService::generarCodigo();
 
         return $pdf->download("Factura_$codigo.pdf");
     }
 }
+

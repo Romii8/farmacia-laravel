@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" style="background-color: #5A0F2E;" class="border-b border-gray-100">
+<nav x-data="{ open: false }" style="background-color: #A90046;" class="border-b border-gray-100">
 
 
     <!-- Primary Navigation Menu -->
@@ -38,6 +38,10 @@
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
+                        </x-dropdown-link>
+
+                        <x-dropdown-link href="/mis-compras">
+                            {{ __('Mis Compras') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->

@@ -12,7 +12,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #2563eb;
+    background: #000000;
     color: white;
     border-radius: 50%;
     width: 55px;
@@ -31,7 +31,7 @@
     right: 20px;
     width: 320px;
     background: white;
-    border: 1px solid #ddd;
+    border: 1px solid #000000;
     border-radius: 10px;
     display: none;
     flex-direction: column;
@@ -39,7 +39,7 @@
 }
 
 #chat-title {
-    background: #2563eb;
+    background: #000000;
     color: white;
     padding: 10px;
     border-radius: 10px 10px 0 0;

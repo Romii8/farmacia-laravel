@@ -9,7 +9,6 @@ class AsistenteFarmaciaController extends Controller
 {
     public function responder(Request $request)
     {
-        // ✅ Leer mensaje (JSON o normal)
         $mensaje = $request->json('message') ?? $request->input('message');
 
         if (!$mensaje) {
@@ -18,10 +17,8 @@ class AsistenteFarmaciaController extends Controller
             ]);
         }
 
-        // ✅ API KEY Gemini
         $apiKey = env('GEMINI_API_KEY');
 
-        // ✅ MODELO ACTUAL DE GEMINI (IMPORTANTE)
         $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=".$apiKey;
 
 
@@ -38,7 +35,6 @@ class AsistenteFarmaciaController extends Controller
             ]
         ]);
 
-        // ✅ DEBUG: si Gemini falla, ver error real
         if (!$response->successful()) {
             return response()->json([
                 'reply' => 'Error Gemini: '.$response->body()
@@ -47,7 +43,7 @@ class AsistenteFarmaciaController extends Controller
 
         $data = $response->json();
 
-        // ✅ Extraer respuesta REAL de Gemini
+
         $respuestaIA = $data['candidates'][0]['content']['parts'][0]['text'] ?? null;
 
         if (!$respuestaIA) {

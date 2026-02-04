@@ -7,7 +7,7 @@
             flex-wrap: wrap; 
             gap: 20px;
             position: relative;
-            background: #a0a0dd;
+            background: #A90046;
             padding: 30px;
             border-radius: 50px;
 }
@@ -26,7 +26,7 @@
          margin-top: 10px;
          width: 100%;
          padding: 12px;
-         background-color: #800000; /* color vino */
+         background-color: #A90046; /* color vino */
          color: white;
          border: none;
          border-radius: 30px; /* 🔴 hace el botón ovalado */
@@ -40,7 +40,7 @@
 }
 
 .producto button:hover {
-    background-color: #660000; /* vino más oscuro */
+    background-color: #A90046; /* vino más oscuro */
 }
 
 
@@ -53,7 +53,7 @@
     max-height: 300px;
     overflow: hidden;
 
-    background: #380808;
+    background: #A90046;
     border: 2px solid #ddd;
     border-radius: 15px;
     padding: 15px;
@@ -107,7 +107,7 @@
 }
 
 .bloque-cliente{
-  background-color: #460101;
+  background-color: #A90046;
   color: white;
   text-align: center;
   padding: 20px;
