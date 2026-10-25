@@ -1,59 +1,101 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Farmacia Virtual 
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplicación web desarrollada como proyecto académico para la consulta y compra de medicamentos. Utiliza Laravel para la gestión de la aplicación e integra una base de datos y servicios externos.
 
-## About Laravel
+## Funcionalidades
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Autenticación y gestión de usuarios.
+- Consulta y gestión de medicamentos.
+- Integración con un servicio de inteligencia artificial.
+- Envío de correos electrónicos.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tecnologías utilizadas
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Backend:** PHP y Laravel.
+- **Frontend:** Blade, HTML y CSS.
+- **Estilos e interactividad:** Tailwind CSS y Alpine.js.
+- **Base de datos:** SQL.
+- **Herramientas de desarrollo:** Composer, Vite y npm.
 
-## Learning Laravel
+## Requisitos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- PHP 8.2 o una versión compatible con las dependencias del proyecto.
+- Composer.
+- Node.js y npm para instalar y compilar los recursos del frontend.
+- Un sistema gestor de bases de datos compatible con el archivo SQL incluido.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Instalación y configuración
 
-## Laravel Sponsors
+### 1. Clonar el repositorio
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+git clone https://github.com/Romii8/farmacia-laravel.git
+cd farmacia-laravel
+```
 
-### Premium Partners
+### 2. Instalar las dependencias
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```bash
+composer install
+npm install
+```
 
-## Contributing
+### 3. Configurar el entorno
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Crear un archivo `.env` a partir de `.env.example`:
 
-## Code of Conduct
+```bash
+cp .env.example .env
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Generar la clave de la aplicación:
 
-## Security Vulnerabilities
+```bash
+php artisan key:generate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 4. Configurar la base de datos
 
-## License
+El repositorio incluye un archivo SQL de respaldo en `database/sql/farmacia_bd.sql`.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. Crear una base de datos local.
+2. Importar el archivo SQL mediante una herramienta compatible, como phpMyAdmin.
+3. Configurar en `.env` los datos de conexión correspondientes a la base de datos creada.
+
+El respaldo debe importarse de acuerdo con su estructura. No ejecutar migraciones que creen las mismas tablas sin verificar previamente su compatibilidad con el SQL.
+
+### 5. Configurar los servicios externos
+
+Las integraciones de inteligencia artificial y correo electrónico requieren sus respectivas credenciales y configuraciones.
+
+Estas deben añadirse únicamente al archivo `.env` local. El repositorio no incluye claves de API, contraseñas de correo ni credenciales privadas.
+
+### 6. Compilar los recursos del frontend
+
+```bash
+npm run build
+```
+
+### 7. Iniciar la aplicación
+
+```bash
+php artisan serve
+```
+
+Abrir en el navegador la dirección local que indique Laravel en la terminal.
+
+## Seguridad
+
+- No publicar archivos `.env` ni credenciales privadas.
+- Utilizar claves propias para los servicios externos que se deseen habilitar.
+- Emplear datos de prueba y evitar información personal real al trabajar con la base de datos.
+
+## Estado del proyecto
+
+Proyecto académico disponible para consulta de su código fuente. Para ejecutarlo se requiere configurar el entorno local, la base de datos y los servicios externos correspondientes.
+
+## Autores
+
+Romina Andrade, Angie Reyes, Robert Romero, Demi Tinajero
+Estudiantes de Ingeniería en Ciencias de la Computación.
+
